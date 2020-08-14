@@ -1,0 +1,25 @@
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - amplifyPush --simple
+frontend:
+  phases:
+    # IMPORTANT - Please verify your build commands
+    preBuild:
+      commands:
+        - cd cloud_energy
+        - flutter channel master
+        - flutter clean
+        - flutter config --enable-web
+    build:
+      commands:
+        - flutter build web
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: cloud_energy/build/web
+    files:
+      - '**/*'
+  cache:
+    paths: []
