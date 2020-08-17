@@ -1,0 +1,9 @@
+version: '2'
+services:
+    cloud-energy:
+        image: teddyyy/cloud-energy-build-image
+        volumes:
+            - ./cloud_energy:/cloud_energy/
+        working_dir: /
+        tty: true
+        # command: flutter build web
